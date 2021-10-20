@@ -7,14 +7,18 @@
 
 // CODE HERE
 
+const multiply = (num1, num2) => num1 * num2
+const multiplyIt = (num1, num2, cb) => cb(num1, num2)
 
+
+console.log(multiplyIt(3, 6, multiply));
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// multiply(4, 3, answer => {
-//   console.log('The answer is ' + answer) //should console.log 12
-// })
+multiply(4, 3, answer => {
+console.log('The answer is ' + answer) //should console.log 12
+})
 
 
 
@@ -37,10 +41,18 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 
 // CODE HERE 
 
+const firstNameCB = (names[0])
+
+const first = (arr, firstNameCB) => {
+  return (arr, firstNameCB);
+}
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
+
+first([names], firstNameCB)
+console.log("The first name is " + firstNameCB);
 
 // first(names, firstName => {
 //   console.log('The first name in names is ' + firstName)
@@ -58,6 +70,11 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 // CODE HERE
 
 
+function last(arr, callback) {
+  callback(arr[arr.length-1])
+}
+
+
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
@@ -65,6 +82,10 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 // last(names, lastName => {
 //   console.log('The last name in names is ' + lastName)
 // })
+
+last(names, lastName => {
+  console.log('The last name in names is ' + lastName)
+})
 
 
 
@@ -78,19 +99,25 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE 
-
+function contains(arr, name, callback) {
+  if(arr.includes(name) === true) {
+    callback(true)
+  } else {
+    callback(false)
+  }
+}
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// contains(names, 'Colt', result => {
-//   if(result === true){
-//     console.log('Colt is in the array')
-//   } else {
-//     console.log('Colt is not in the array')
-//   }
-// })
+contains(names, 'Colt', result => {
+  if(result === true){
+    console.log('Colt is in the array')
+  } else {
+    console.log('Colt is not in the array')
+  }
+})
 
 
 
@@ -104,15 +131,23 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 
 // CODE HERE
 
-/*
-  Invoke the uniq function, passing in the names array from above and a callback function.
-  The callback function should take in one parameter called uniqArr.
-  The callback should print a string that says:
-  'The new names array with all the duplicate items removed is [UNIQARRPARAM].'
-*/
+const uniq = (arr, callback) => {
+  let uniqueArr = arr.filter((name,pos) => arr.indexOf(name) == pos)
+  callback(uniqueArr)
+}
+
+
+//   Invoke the uniq function, passing in the names array from above and a callback function.
+//   The callback function should take in one parameter called uniqArr.
+//   The callback should print a string that says:
+//   'The new names array with all the duplicate items removed is [UNIQARRPARAM].'
+// */
 
 // CODE HERE
 
+uniq (names, unique => {
+  console.log(`The new names array with all the duplicate items removed is ${unique}`)
+})
 
 
 ////////// PROBLEM 6 //////////
@@ -143,26 +178,26 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // Do not edit the code below.
-var users = [
-  {
-    id: '12d',
-    email: 'tyler@gmail.com',
-    name: 'Tyler',
-    address: '167 East 500 North'
-  },
-  {
-    id: '15a',
-    email: 'cahlan@gmail.com',
-    name: 'Cahlan',
-    address: '135 East 320 North'
-  },
-  {
-    id: '16t',
-    email: 'ryan@gmail.com',
-    name: 'Ryan',
-    address: '192 East 32 North'
-  },
-]
+// var users = [
+//   {
+//     id: '12d',
+//     email: 'tyler@gmail.com',
+//     name: 'Tyler',
+//     address: '167 East 500 North'
+//   },
+//   {
+//     id: '15a',
+//     email: 'cahlan@gmail.com',
+//     name: 'Cahlan',
+//     address: '135 East 320 North'
+//   },
+//   {
+//     id: '16t',
+//     email: 'ryan@gmail.com',
+//     name: 'Ryan',
+//     address: '192 East 32 North'
+//   },
+// ]
 // Do not edit the code above.
 
 // CODE HERE 
